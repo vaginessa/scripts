@@ -1,0 +1,46 @@
+" ~/.vimrc
+" from http://www.slackorama.com/projects/vim/vimrc.html
+
+" Use Vim settings, rather then Vi settings (much better!).
+set nocompatible
+
+" Show line number
+"set number
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" I like 4 spaces for indenting
+set shiftwidth=4
+
+" I like 4 stops
+set tabstop=4
+
+" Spaces instead of tabs
+set expandtab
+
+" Always  set auto indenting on
+set autoindent
+
+" Select when using the mouse
+set selectmode=mouse
+
+" Set the commandheight
+set cmdheight=2
+
+" Show tab characters. Visual Whitespace.
+"set list
+"set listchars=tab:>.
+
+" Set ignorecase on
+set ignorecase
+
+" Set status line
+set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
+
+" Always display a status line at the bottom of the window
+set laststatus=2
+
+" Do not keep a backup files 
+set nobackup
+set nowritebackup
