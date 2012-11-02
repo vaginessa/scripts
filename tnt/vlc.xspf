@@ -84,7 +84,7 @@
 			</track>
 			
 			<track>
-				<title>00010. TMC</title>
+				<title>0010. TMC</title>
 				<location>dvb-t://frequency=474000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=0:guard=0:hierarchy=0</location>
 				<extension application="http://www.videolan.org/vlc/playlist/0">
 					<vlc:id>10</vlc:id>
