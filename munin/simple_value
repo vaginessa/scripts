@@ -1,0 +1,19 @@
+#!/bin/sh
+
+######################################
+#   graph a simple value with munin
+#   /etc/munin/plugins/
+######################################
+
+case $1 in
+   config)
+        cat <<'EOM'
+graph_title Value
+graph_vlabel value
+value.label value
+EOM
+        exit 0;;
+esac
+
+echo -n "value.value "
+cat /home/user/data
