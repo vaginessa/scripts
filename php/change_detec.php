@@ -16,17 +16,21 @@ while(1)
     //get the page
     $content = file_get_contents($page);
 
-    //check the regular expression
-    if(preg_match($pattern,$content)) {
-        echo "[*] No update :( \n";
-    }
-    else {
-        echo "[*] Update! :)\n";
-        mail($email,$title,$title);
-        exit();
+    //no error
+    if($content)
+    {
+        //check the regular expression
+        if(preg_match($pattern,$content)) {
+            //nothing change
+        }
+        else {
+            echo "[UPDATED]\n";
+            mail($email,$title,$title);
+            exit();
+        }
     }
 
-    echo "...\n";
+    echo "[...] \n";
     sleep($frequency);
 }
 
