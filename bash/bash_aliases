@@ -1,0 +1,78 @@
+# Eliminer les commentaires d'un fichier
+alias cgrep="grep -E -v '^(#|$|;)'"
+alias nocomment='cgrep'
+
+# Reviens à faire  cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.bak 
+function cpb() { cp $@{,.bak} ;}
+# Crée une sauvegarde du fichier passé en paramètre, en rajoutant l'heure et la date
+function bak() { cp "$1" "$1_`date +%Y-%m-%d_%H-%M-%S`" ; }
+alias bak="bak"
+alias back="bak"
+
+# Êtres gentil avec les ressources de son système
+function nicecool() {
+    if ! [ -z "$1" ] 
+    then
+        # Prendre en paramètre un pid
+        ionice -c3 -p$1 ; renice -n 19 -p $1
+    else
+        # Si il n'y a pas de paramètre on nice le pid courant (le bash)
+        ionice -c3 -p$$ ; renice -n 19 -p $$
+    fi
+}
+alias niceprod="nicecool"
+alias np="niceprod"
+
+function extract() {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)  tar xjf $1      ;;
+            *.tar.gz)   tar xzf $1      ;;
+            *.bz2)      bunzip2 $1      ;;
+            *.rar)      rar x $1        ;;
+            *.gz)       gunzip $1       ;;
+            *.tar)      tar xf $1       ;;
+            *.tbz2)     tar xjf $1      ;;
+            *.tgz)      tar xzf $1      ;;
+            *.zip)      unzip $1        ;;
+            *.Z)        uncompress $1   ;;
+            *)          echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+alias extract="extract"
+alias unall="extract"
+
+# Bannir l'IP d'un méchant rapidement
+function ban() {
+    if [ "`id -u`" == "0" ] ; then
+        iptables -A INPUT -s $1 -j DROP
+    else
+        sudo iptables -A INPUT -s $1 -j DROP
+    fi
+}
+alias ban="ban"
+
+# Divers petits raccourcis : 
+alias q='exit'
+alias maj='sudo aptitude update && sudo aptitude safe-upgrade'
+alias c='clear'
+alias rm='rm --interactive --verbose'
+alias wget='wget -c'
+alias mv='mv --interactive --verbose'
+alias cp='cp --verbose'
+alias grepr='grep -r'
+alias grep='grep -i --color'
+alias tree="find . | sed 's/[^/]*\//|   /g;s/| *\([^| ]\)/+--- \1/'"
+alias mkdir='mkdir -pv'
+alias pg='ps aux | grep'
+alias pl='ps faux | less'
+#function mkcd () { mkdir $1 && cd $1 }
+function mkcd() { mkdir -p "$@" && cd "$_"; }
+alias mkcd="mkcd"
+
+# Sources : 
+#  - http://root.abl.es/methods/1504/automatic-unzipuntar-using-correct-tool/
+#  - http://forum.ubuntu-fr.org/viewtopic.php?id=20437&p=3
