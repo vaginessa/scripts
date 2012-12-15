@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>canvas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  </head>
+
+  <body onload="draw()">
+
+  <canvas id="mapsCanvas" width="450" height="450"></canvas>
+
+
+<script type="application/x-javascript">
+    
+    var mapsCanvas = document.getElementById("mapsCanvas");
+    var ctx = document.getElementById('mapsCanvas').getContext('2d');
+
+    var radius = 20;
+    
+    var eyes = [
+        {"name":"e1","x":170,"y":75,"object":null},
+        {"name":"e2","x":275,"y":75,"object":null}
+    ]
+    function drawCircle(x,y) {
+        var ctx = document.getElementById('mapsCanvas').getContext('2d');
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI*2, true); 
+        ctx.closePath();
+        ctx.fillStyle="black";
+        ctx.fill();
+        return ctx;
+    }
+
+    function draw() {
+        var img = new Image();
+        img.src = 'bugdroid.png';
+        img.onload = function(){
+        
+        ctx.drawImage(img,0,0);
+
+        for(i=0; i< eyes.length; i++) {
+            eyes[i].object = drawCircle(eyes[i].x, eyes[i].y);
+        }
+        
+        mapsCanvas.addEventListener("click", mapsOnClick, false);
+      }
+    }
+    
+    function mapsOnClick(e) {
+        var x;
+        var y;
+        if (e.pageX != undefined && e.pageY != undefined) {
+            x = e.pageX;
+            y = e.pageY;
+        }
+        else {
+            x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+            y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+        }
+        x -= mapsCanvas.offsetLeft;
+        y -= mapsCanvas.offsetTop;
+        
+        
+        //detect click on point
+        for(i=0; i<eyes.length; i++) {
+            if(x < eyes[i].x+radius && x > eyes[i].x-radius) {
+                if(y < eyes[i].y+radius && y > eyes[i].y-radius) {
+                    alert("name: " + eyes[i].name);
+                }
+            }
+        }
+    }
+
+</script>
+
+  </body>
+</html>
