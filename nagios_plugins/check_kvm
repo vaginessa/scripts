@@ -1,0 +1,50 @@
+#!/usr/bin/python
+
+import re, sys, os
+import libvirt
+
+VIR_DOMAIN_NOSTATE = 0
+VIR_DOMAIN_RUNNING = 1
+VIR_DOMAIN_BLOCKED = 2
+VIR_DOMAIN_PAUSED = 3
+VIR_DOMAIN_SHUTDOWN = 4
+VIR_DOMAIN_SHUTOFF = 5
+VIR_DOMAIN_CRASHED = 6
+
+STATE_OK = 0
+STATE_WARNING = 1
+STATE_CRITICAL = 2
+STATE_UNKNOWN = 3
+STATE_DEPENDENT = 4
+
+def main(args):
+    uri = os.getenv("uri", "qemu:///system")
+    try:
+        conn = libvirt.openReadOnly(uri)
+    except libvirt.libvirtError, err:
+        print "Error"
+        sys.exit(STATE_CRITICAL)
+    listDomId = conn.listDomainsID()
+    #listDomDef = conn.listDefinedDomains()
+    
+    for id in listDomId:
+        try:
+            dom = conn.lookupByID(id)
+            name = dom.name()
+            server = args[1]
+            if name.strip() == server.strip():
+                infos = dom.info()
+                if infos[0] == VIR_DOMAIN_RUNNING:
+                    print "RUNNING"
+                    sys.exit(STATE_OK)
+                else:
+                    print ""
+                    sys.exit(STATE_CRITICAL)
+        except libvirt.libvirtError, err:
+            print "Error"
+            sys.exit(STATE_CRITICAL)
+    print "NOT RUNNING"
+    sys.exit(STATE_CRITICAL)
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
+
