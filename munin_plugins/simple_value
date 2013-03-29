@@ -11,6 +11,7 @@ case $1 in
 graph_title Value
 graph_vlabel value
 value.label value
+value.draw LINE2
 EOM
         exit 0;;
 esac
