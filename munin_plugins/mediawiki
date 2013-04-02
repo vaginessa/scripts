@@ -1,7 +1,5 @@
 #!/usr/bin/php
-
 <?php
-
 #######################################################################
 #API URL
 #http://localhost/mediawiki/api.php?action=query&meta=siteinfo&siprop=statistics&format=json
@@ -12,7 +10,6 @@
 #USAGE
 #ln -s /usr/share/munin/plugins/mediawiki /etc/munin/plugins/mediawiki_views
 #######################################################################
-
 $server = "http://localhost/mediawiki";
 $wikiname = "Wiki";
 //$suffix = "views";
