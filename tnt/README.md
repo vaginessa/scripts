@@ -1,8 +1,41 @@
-Description
-=====
+## Description ##
 
-* TNT DVB-T for Selestat, France (November 2012)
+TNT DVB-T for Selestat, France (July 2014)
 
-* w_scan -ft -c FR -L > vlc.xspf
 
-* Avermedia A850 latest firmware: http://palosaari.fi/linux/v4l-dvb/firmware/af9015/
+## Scan with w_scan ##
+
+```
+w_scan -ft -c FR -L > vlc.xspf
+```
+
+## Scan with dvbv5-scan
+
+```
+sudo aptitude install dvb-tools
+```
+
+or
+
+```
+git clone git://linuxtv.org/v4l-utils.git
+sudo aptitude install autoconf libtool
+autoreconf -vfi
+./configure
+make
+cd utils/dvb
+./dvbv5-scan channel.txt -o output.txt
+```
+
+channel.txt
+
+```
+[CHANNEL]
+FREQUENCY = 682000000
+BANDWIDTH_HZ = 8000000
+```
+
+## Links ##
+
+* [w_scan](http://wirbel.htpc-forum.de/w_scan/index2.html)
+* [Avermedia A850 latest firmware](http://palosaari.fi/linux/v4l-dvb/firmware/af9015/)
