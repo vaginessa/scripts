@@ -406,5 +406,32 @@
 					<vlc:option>program=775</vlc:option>
 				</extension>
 			</track>
+			
+			<track>
+				<title>0046. 6TER</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=0:guard=0:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>46</vlc:id>
+					<vlc:option>program=2817</vlc:option>
+				</extension>
+			</track>
+			
+			<track>
+				<title>0047. NUMERO 23</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=0:guard=0:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>47</vlc:id>
+					<vlc:option>program=2818</vlc:option>
+				</extension>
+			</track>
+			
+			<track>
+				<title>0048. RMC DECOUVERTE</title>
+				<location>dvb-t://frequency=682000000:inversion=2:bandwidth=8:code-rate-hp=9:code-rate-lp=9:modulation=0:transmission=0:guard=0:hierarchy=0</location>
+				<extension application="http://www.videolan.org/vlc/playlist/0">
+					<vlc:id>48</vlc:id>
+					<vlc:option>program=2819</vlc:option>
+				</extension>
+			</track>
 		</trackList>
 	</playlist>
