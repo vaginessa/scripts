@@ -27,14 +27,6 @@ cd utils/dvb
 ./dvbv5-scan channel.txt -o output.txt
 ```
 
-channel.txt
-
-```
-[CHANNEL]
-FREQUENCY = 682000000
-BANDWIDTH_HZ = 8000000
-```
-
 ## Links ##
 
 * [w_scan](http://wirbel.htpc-forum.de/w_scan/index2.html)
