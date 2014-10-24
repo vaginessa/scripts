@@ -1,6 +1,6 @@
 ## Description ##
 
-TNT DVB-T for Selestat, France (July 2014)
+TNT DVB-T for Selestat, France (October 2014)
 
 
 ## Scan with w_scan ##
