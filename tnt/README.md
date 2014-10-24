@@ -31,3 +31,6 @@ cd utils/dvb
 
 * [w_scan](http://wirbel.htpc-forum.de/w_scan/index2.html)
 * [Avermedia A850 latest firmware](http://palosaari.fi/linux/v4l-dvb/firmware/af9015/)
+
+* [Correspondance canaux/fréquences](http://www.recevoirlatnt.fr/professionnels/la-tnt/correspondance-canauxfrequences/#.VEqyCnWsWkA)
+* [Déploiement_phase_11.pdf](http://www.recevoirlatnt.fr/fileadmin/contenu/PRO_Phase11/D%C3%A9ploiement_phase_11.pdf)
