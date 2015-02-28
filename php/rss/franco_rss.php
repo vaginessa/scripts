@@ -11,7 +11,7 @@ echo '<description>Nexus 5 franco.Kernel release</description>';
 $date =  new DateTime();
 echo '<pubDate>'. $date->format(DateTime::RSS) .'</pubDate>';
 
-$changelog = file_get_contents('http://kernels.franco-lnx.net/Nexus5/4.4/appfiles/changelog.xml');
+$changelog = file_get_contents('http://kernels.franco-lnx.net/Nexus5/5.0/appfiles/changelog.xml');
 
 $versions = simplexml_load_string($changelog);
 
@@ -24,7 +24,7 @@ for($i=0;$i<10;$i++) {
               echo $versions->changelogversion[$i]->changelogtext[$j] . "\n";
           }
         echo '</description>';
-        echo '<guid>http://kernels.franco-lnx.net/Nexus5/4.4/appfiles/changelog.xml?'.$versions->changelogversion[$i]['versionName'].'</guid>';
+        echo '<guid>http://kernels.franco-lnx.net/Nexus5/5.0/appfiles/changelog.xml?'.$versions->changelogversion[$i]['versionName'].'</guid>';
     echo '</item>';
 
 }
