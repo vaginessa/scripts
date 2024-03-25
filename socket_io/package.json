@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "dependencies": {
         "socket.io":  "0.9.14",
-        "express": "3.2.4"
+        "express": "4.19.2"
     },
     "author": "rk4an",
     "description": "demo"
