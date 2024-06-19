@@ -2,7 +2,7 @@
     "name": "demo",
     "version": "0.0.1",
     "dependencies": {
-        "socket.io":  "0.9.14",
+        "socket.io":  "2.5.0",
         "express": "3.2.4"
     },
     "author": "rk4an",
